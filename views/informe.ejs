@@ -2,34 +2,17 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comedor de los Pobres</title>
-    <link rel="icon" type="image/png" href="imagenes/logomorado.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <%- include('partials/head', { 
+        title: 'Comedor de los Pobres - Informe', 
+        description: 'Informe de Actividades y Resultados de la Asociación Juan XXIII. Conoce nuestro impacto y logros.' 
+    }) %>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap');
-
         :root {
             --morado-main: #7c3aed;
             --naranja-accent: #f97316;
             --bg-clean: #fafafa;
         }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-clean);
-            color: #1a1a1a;
-            scroll-behavior: smooth;
-        }
-
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
+        html { scroll-behavior: smooth; }
         .hero-gradient {
             background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
         }
@@ -75,28 +58,9 @@
             color: var(--naranja-accent);
         }
 
-        .nav-link {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--morado-main);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        #mobile-menu-panel {
-            -webkit-overflow-scrolling: touch;
+        .hero-report {
+            background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%);
+            border-radius: 0 0 4rem 4rem;
         }
     </style>
 </head>
@@ -104,80 +68,13 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav class="glass-nav sticky top-0 w-full z-[110] transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center gap-3">
-            <!-- Logo -->
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center text-white shadow-lg">
-                    <i class="fas fa-heart text-xl"></i>
-                </div>
-                <div class="flex flex-col leading-none">
-                    <span class="font-black text-xl text-purple-900 tracking-tighter">JUAN XXIII</span>
-                    <span class="text-[10px] text-orange-500 font-bold uppercase tracking-widest">Comedor de los Pobres P. Roberto Infante</span>
-                </div>
-            </div>
+    <%- include('partials/navbar') %>
 
-            <!-- Links de Navegación -->
-            <div class="hidden lg:flex space-x-8 items-center">
-                <a href="index.html" class="nav-link text-sm font-bold text-gray-600 hover:text-purple-600">INICIO</a>
-                <a href="laAsosiacion.html" class="nav-link text-sm font-bold text-gray-600 hover:text-purple-600">LA
-                    ASOCIACIÓN</a>
-                <a href="informe.html"
-                    class="nav-link text-sm font-bold text-gray-600 hover:text-purple-600 text-purple-600">INFORME</a>
-                <a href="contactanos.html"
-                    class="nav-link text-sm font-bold text-gray-600 hover:text-purple-600">CONTÁCTANOS</a>
-                <a href="cuentas.html"
-                    class="nav-link text-sm font-bold text-gray-600 hover:text-purple-600">CUENTAS</a>
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"
-                    class="inline-flex items-center">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="hosted_button_id" value="4DESX3LB9LFRC">
-                    <button type="submit"
-                        class="px-6 py-2.5 bg-orange-500 text-white rounded-full font-black text-xs hover:bg-orange-600 transition shadow-lg shadow-orange-200 cursor-pointer">DONAR</button>
-                </form>
-            </div>
-
-            <!-- Mobile Toggle -->
-            <button type="button" id="mobile-menu-toggle"
-                class="lg:hidden relative z-[120] p-2 -mr-2 rounded-xl text-purple-900 hover:bg-purple-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
-                aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
-                <i class="fas fa-bars text-2xl icon-open" aria-hidden="true"></i>
-                <i class="fas fa-times text-2xl icon-close hidden" aria-hidden="true"></i>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Menú móvil (scrollable en pantallas bajas / landscape) -->
-    <div id="mobile-menu" class="lg:hidden fixed inset-0 z-[100] pointer-events-none" aria-hidden="true">
-        <div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-200"
-            aria-hidden="true"></div>
-        <div id="mobile-menu-panel"
-            class="absolute top-14 sm:top-16 left-0 right-0 w-full max-h-[calc(100dvh-3.5rem)] sm:max-h-[calc(100dvh-4rem)] bg-white shadow-xl rounded-b-3xl border-x border-b border-purple-100/80 -translate-y-full transition-transform duration-200 ease-out overflow-y-auto overscroll-contain pb-[max(1rem,env(safe-area-inset-bottom))]">
-            <nav class="flex flex-col px-4 pt-8 pb-4 gap-1" aria-label="Menú principal">
-                <a href="index.html" class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold">INICIO</a>
-                <a href="laAsosiacion.html"
-                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold text-gray-700 hover:bg-purple-50 hover:text-purple-600">LA
-                    ASOCIACIÓN</a>
-                <a href="informe.html"
-                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold text-gray-700 hover:bg-purple-50 hover:text-purple-600 bg-purple-50 text-purple-600">INFORME</a>
-                <a href="contactanos.html"
-                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold text-gray-700 hover:bg-purple-50 hover:text-purple-600">CONTÁCTANOS</a>
-                <a href="cuentas.html"
-                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold text-gray-700 hover:bg-purple-50 hover:text-purple-600">CUENTAS</a>
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="mt-4 mx-1">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="hosted_button_id" value="4DESX3LB9LFRC">
-                    <button type="submit"
-                        class="w-full py-3.5 text-center bg-orange-500 text-white rounded-2xl font-black text-sm hover:bg-orange-600 transition shadow-lg shadow-orange-200 cursor-pointer">DONAR</button>
-                </form>
-            </nav>
-        </div>
-    </div>
 
     <!-- PORTADA DEL INFORME -->
     <header class="hero-report pt-20 pb-24 text-center">
         <div class="max-w-4xl mx-auto px-6 relative z-10">
-            <span class="text-orange-500 font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">Transparencia y
+            <span class="text-orange-500 font-black text-[10px] uppercase tracking-widest mb-4 block">Transparencia y
                 Resultados</span>
             <h1 class="text-4xl md:text-5xl font-black text-purple-900 mb-6">Informe Anual 2025</h1>
             <p class="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
@@ -811,7 +708,7 @@
                                 <br><strong>"Comunidad que Alimenta con Dignidad"</strong>.
                             </p>
                             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                                <a href="contactanos.html"
+                                <a href="/contactanos"
                                     class="bg-purple-600 text-white px-8 py-4 rounded-full font-black text-sm hover:bg-purple-700 transition shadow-lg shadow-purple-200">SER
                                     VOLUNTARIO</a>
                                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"
@@ -832,63 +729,7 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-white border-t border-gray-100 pt-20">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-0 pb-16">
-
-            <div class="w-full lg:max-w-[280px]">
-                <div class="flex items-center space-x-3 mb-6">
-                    <div class="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center text-white">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <span class="font-black text-2xl text-purple-900">JUAN XXIII</span>
-                </div>
-                <p class="text-gray-500 leading-relaxed text-sm">
-                    Asociación Civil dedicada a combatir la inseguridad alimentaria en las zonas más vulnerables.
-                </p>
-            </div>
-
-            <div class="w-full lg:max-w-[280px] space-y-4">
-                <h4 class="font-bold text-gray-900 uppercase text-xs tracking-widest border-l-4 border-yellow-400 pl-4">
-                    Contacto Directo</h4>
-                <p class="text-gray-600 text-sm flex items-start"><i
-                        class="fas fa-map-marker-alt mt-1 mr-3 text-purple-600"></i> Castelar #1490 (Juan Pablo
-                    II),<br>Colonia Pio X, Monterrey, N.L. C.P 64710</p>
-                <p class="text-purple-600 font-black text-xl">81 8375 1163</p>
-            </div>
-
-            <div class="w-full lg:max-w-[280px] space-y-4">
-                <h4 class="font-bold text-gray-900 uppercase text-xs tracking-widest border-l-4 border-purple-600 pl-4">
-                    Nuestras Redes</h4>
-                <div class="flex space-x-3">
-                    <a href="https://www.facebook.com/www.comedordelospobres.org" target="_blank"
-                        class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white transition-all"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/Comedor_delospobres" target="_blank"
-                        class="w-12 h-12 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center hover:bg-orange-600 hover:text-white transition-all"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@juanxxiiialserviciodelospo2206" target="_blank"
-                        class="w-12 h-12 rounded-2xl bg-yellow-50 text-yellow-600 flex items-center justify-center hover:bg-yellow-600 hover:text-white transition-all"><i
-                            class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-
-            <div class="w-full lg:w-auto flex items-center lg:justify-end">
-                <img src="imagenes/jbpnl.jpg" alt="OSC Analizada" class="h-28 w-auto">
-            </div>
-        </div>
-
-        <div class="bg-gray-50 py-8 border-t border-gray-100">
-            <div
-                class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 gap-4 text-xs font-bold">
-                <p>© 2024 Juan XXIII al Servicio de los Pobres A.C.</p>
-                <div class="flex space-x-6">
-                    <a href="#" class="hover:text-purple-600">Privacidad</a>
-                    <a href="#" class="hover:text-purple-600">Términos</a>
-                    <a href="#" class="hover:text-purple-600">Voluntariado</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <%- include('partials/footer') %>
 
     <script>
         // Lógica simple para resaltar el sidebar al hacer scroll
@@ -911,63 +752,7 @@
                 }
             });
         });
-
-        (function () {
-            var root = document.getElementById('mobile-menu');
-            var toggle = document.getElementById('mobile-menu-toggle');
-            var backdrop = document.getElementById('mobile-menu-backdrop');
-            var panel = document.getElementById('mobile-menu-panel');
-            if (!root || !toggle || !backdrop || !panel) return;
-
-            var openIcon = toggle.querySelector('.icon-open');
-            var closeIcon = toggle.querySelector('.icon-close');
-            var links = root.querySelectorAll('a');
-
-            function setOpen(open) {
-                root.classList.toggle('pointer-events-none', !open);
-                root.setAttribute('aria-hidden', open ? 'false' : 'true');
-                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-                toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
-                document.body.classList.toggle('overflow-hidden', open);
-
-                backdrop.classList.toggle('opacity-0', !open);
-                backdrop.classList.toggle('opacity-100', open);
-
-                panel.classList.toggle('-translate-y-full', !open);
-                panel.classList.toggle('translate-y-0', open);
-
-                if (openIcon && closeIcon) {
-                    openIcon.classList.toggle('hidden', open);
-                    closeIcon.classList.toggle('hidden', !open);
-                }
-            }
-
-            toggle.addEventListener('click', function () {
-                setOpen(toggle.getAttribute('aria-expanded') !== 'true');
-            });
-
-            backdrop.addEventListener('click', function () {
-                setOpen(false);
-            });
-
-            links.forEach(function (a) {
-                a.addEventListener('click', function () {
-                    setOpen(false);
-                });
-            });
-
-            root.querySelectorAll('form').forEach(function (f) {
-                f.addEventListener('submit', function () {
-                    setOpen(false);
-                });
-            });
-
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape') setOpen(false);
-            });
-        })();
     </script>
-
 </body>
 
 </html>

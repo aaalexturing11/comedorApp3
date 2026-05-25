@@ -1,0 +1,71 @@
+    <!-- NAVBAR -->
+    <nav class="glass-nav sticky top-0 w-full z-[110] transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center gap-3">
+            <!-- Logo -->
+            <a href="/" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-lg">
+                    <img src="/imagenes/logomorado.png" alt="Logo" class="w-full h-full object-cover">
+                </div>
+                <div class="flex flex-col leading-none">
+                    <span class="font-black text-xl text-purple-900 tracking-tighter">JUAN XXIII</span>
+                    <span class="text-[10px] text-orange-500 font-bold uppercase tracking-widest">Comedor de los Pobres P. Roberto Infante</span>
+                </div>
+            </a>
+
+            <!-- Links de Navegación -->
+            <div class="hidden lg:flex space-x-8 items-center">
+                <a href="/"
+                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'index' ? 'text-purple-600 border-b-2 border-orange-500 font-extrabold' : 'text-gray-600 hover:text-purple-600' %>">INICIO</a>
+                <a href="/laAsociacion" 
+                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'laAsociacion' ? 'text-purple-600 border-b-2 border-orange-500 font-extrabold' : 'text-gray-600 hover:text-purple-600' %>">LA ASOCIACIÓN</a>
+                <a href="/informe"
+                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'informe' ? 'text-purple-600 border-b-2 border-orange-500 font-extrabold' : 'text-gray-600 hover:text-purple-600' %>">INFORME</a>
+                <a href="/contactanos"
+                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'contactanos' ? 'text-purple-600 border-b-2 border-orange-500 font-extrabold' : 'text-gray-600 hover:text-purple-600' %>">CONTÁCTANOS</a>
+                <a href="/cuentas"
+                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'cuentas' ? 'text-purple-600 border-b-2 border-orange-500 font-extrabold' : 'text-gray-600 hover:text-purple-600' %>">CUENTAS</a>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"
+                    class="inline-flex items-center">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="4DESX3LB9LFRC">
+                    <button type="submit"
+                        class="px-6 py-2.5 bg-orange-500 text-white rounded-full font-black text-xs hover:bg-orange-600 transition shadow-lg shadow-orange-200 cursor-pointer">DONAR</button>
+                </form>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button type="button" id="mobile-menu-toggle"
+                class="lg:hidden relative z-[120] p-2 -mr-2 rounded-xl text-purple-900 hover:bg-purple-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+                aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+                <i class="fas fa-bars text-2xl icon-open" aria-hidden="true"></i>
+                <i class="fas fa-times text-2xl icon-close hidden" aria-hidden="true"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Menú móvil (scrollable en pantallas bajas / landscape) -->
+    <div id="mobile-menu" class="lg:hidden fixed inset-0 z-[100] pointer-events-none" aria-hidden="true">
+        <div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-200"
+            aria-hidden="true"></div>
+        <div id="mobile-menu-panel"
+            class="absolute top-14 sm:top-16 left-0 right-0 w-full max-h-[calc(100dvh-3.5rem)] sm:max-h-[calc(100dvh-4rem)] bg-white shadow-xl rounded-b-3xl border-x border-b border-purple-100/80 -translate-y-full transition-transform duration-200 ease-out overflow-y-auto overscroll-contain pb-[max(1rem,env(safe-area-inset-bottom))]">
+            <nav class="flex flex-col px-4 pt-8 pb-4 gap-1" aria-label="Menú principal">
+                <a href="/"
+                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'index' ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">INICIO</a>
+                <a href="/laAsociacion"
+                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'laAsociacion' ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">LA ASOCIACIÓN</a>
+                <a href="/informe"
+                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'informe' ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">INFORME</a>
+                <a href="/contactanos"
+                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'contactanos' ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">CONTÁCTANOS</a>
+                <a href="/cuentas"
+                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'cuentas' ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">CUENTAS</a>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="mt-4 mx-1">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="4DESX3LB9LFRC">
+                    <button type="submit"
+                        class="w-full py-3.5 text-center bg-orange-500 text-white rounded-2xl font-black text-sm hover:bg-orange-600 transition shadow-lg shadow-orange-200 cursor-pointer">DONAR</button>
+                </form>
+            </nav>
+        </div>
+    </div>

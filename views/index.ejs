@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('partials/head', { 
+        title: 'Comedor de los Pobres', 
+        description: 'Asociación Juan XXIII - Comedor de los Pobres P. Roberto Infante en Nuevo León. Transformando vidas a través de la nutrición digna.' 
+    }) %>
+    <style>
+        .hero-height {
+            min-height: 90vh;
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(249, 115, 22, 0.2) 100%);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(124, 58, 237, 0.25);
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <%- include('partials/navbar') %>
+
+    <!-- Hero Section -->
+    <section class="relative hero-height flex items-center overflow-hidden py-8 sm:py-12 lg:py-0 font-sans">
+        <!-- Elementos decorativos de fondo -->
+        <div class="blob -top-20 -right-20" style="background: rgba(251, 191, 36, 0.15);"></div>
+        <div class="blob -bottom-20 -left-20" style="background: rgba(124, 58, 237, 0.15);"></div>
+
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-center">
+
+            <!-- Contenido Texto -->
+            <div class="lg:col-span-7 z-10">
+                <div
+                    class="inline-flex items-center space-x-2 bg-purple-50 border border-purple-100 px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6 max-w-full">
+                    <span class="flex h-2 w-2 shrink-0 rounded-full bg-purple-600"></span>
+                    <span
+                        class="text-purple-700 text-[10px] sm:text-xs font-bold uppercase tracking-widest leading-tight">Juan
+                        XXIII al Servicio de los Pobres</span>
+                </div>
+
+                <h1
+                    class="text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-[1.05] sm:leading-none mb-5 sm:mb-8">
+                    Alimentando la <br>
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-orange-500 to-yellow-500">Esperanza</span>
+                </h1>
+
+                <p class="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-10 max-w-xl leading-relaxed">
+                    Transformamos vidas a través de la nutrición digna. Conoce nuestros centros de atención y únete a
+                    nuestra misión en Nuevo León.
+                </p>
+
+                <div class="flex flex-col xs:flex-row flex-wrap gap-3 sm:gap-4">
+                    <a href="#comedores"
+                        class="bg-purple-600 text-white text-center px-6 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold text-base sm:text-lg shadow-xl hover:bg-purple-700 transition-all btn-glow">
+                        Nuestros Comedores
+                    </a>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"
+                        class="w-full xs:flex-1 min-w-0 xs:w-auto">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="4DESX3LB9LFRC">
+                        <button type="submit"
+                            class="bg-orange-500 text-white text-center px-6 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold text-base sm:text-lg shadow-xl hover:bg-orange-600 transition-all btn-glow cursor-pointer">
+                            Donar Ahora
+                        </button>
+                    </form>
+                </div>
+
+                <div class="mt-8 sm:mt-12 flex flex-col xs:flex-row xs:items-center gap-3 xs:gap-6 text-gray-400">
+                    <div class="flex -space-x-3">
+                        <img class="w-10 h-10 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?u=1"
+                            alt="Donante">
+                        <img class="w-10 h-10 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?u=2"
+                            alt="Donante">
+                        <img class="w-10 h-10 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?u=3"
+                            alt="Donante">
+                        <div
+                            class="w-10 h-10 rounded-full border-2 border-white bg-yellow-400 flex items-center justify-center text-xs font-bold text-purple-900">
+                            +50</div>
+                    </div>
+                    <p class="text-sm font-medium max-w-[16rem] xs:max-w-none">Más de 50 voluntarios activos hoy</p>
+                </div>
+            </div>
+
+            <!-- Imagen / Composición Visual -->
+            <div class="lg:col-span-5 relative max-lg:max-w-md max-lg:mx-auto w-full">
+                <div
+                    class="relative z-10 rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-2xl rotate-2 sm:rotate-3 hover:rotate-0 transition-transform duration-500 border-4 sm:border-8 border-white">
+                    <img src="/imagenes/fotoportada.png"
+                        alt="Comedor Social"
+                        class="w-full aspect-[4/5] max-h-[min(55vh,420px)] sm:max-h-none object-cover">
+                </div>
+                <!-- Cuadro de acento naranja -->
+                <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-orange-500 rounded-3xl -z-10 -rotate-6"></div>
+                <!-- Cuadro de acento amarillo -->
+                <div class="absolute -top-6 -right-6 w-32 h-32 bg-yellow-400 rounded-3xl -z-10 rotate-12"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRES PILARES (Responsabilidad, Donativos, Participa) -->
+    <section class="py-24 relative z-20">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <!-- Pilar 1 -->
+            <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-gray-50 card-hover">
+                <div
+                    class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 mb-8 text-2xl">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3 class="text-xl font-black text-purple-900 mb-4">Responsabilidad Social</h3>
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                    Nuestro compromiso es proveer de por lo menos el alimento del día de hoy a las personas que asisten
+                    a nuestros comedores, sin que se pregunten si pasarán otro día con el estómago vacío.
+                </p>
+                <a href="/laAsociacion"
+                    class="text-purple-600 font-black text-xs uppercase tracking-widest flex items-center group">
+                    Leer más <i class="fas fa-chevron-right ml-2 group-hover:ml-4 transition-all"></i>
+                </a>
+            </div>
+
+            <!-- Pilar 2 -->
+            <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-gray-50 card-hover">
+                <div
+                    class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 mb-8 text-2xl">
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <h3 class="text-xl font-black text-purple-900 mb-4">Donativos</h3>
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                    Tu apoyo puede ser económico o en especie; tu aportación nos ayudará a continuar con la preparación
+                    diaria de los alimentos y la operación constante de los Comedores.
+                </p>
+                <a href="/cuentas"
+                    class="text-orange-600 font-black text-xs uppercase tracking-widest flex items-center group">
+                    ¿Cómo donar? <i class="fas fa-chevron-right ml-2 group-hover:ml-4 transition-all"></i>
+                </a>
+            </div>
+
+            <!-- Pilar 3 -->
+            <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-gray-50 card-hover">
+                <div
+                    class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-600 mb-8 text-2xl">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="text-xl font-black text-purple-900 mb-4">¡Participa!</h3>
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                    Ofrece tu tiempo para ayudar a quien más lo necesita. Apoya en la operación diaria de alimentar a
+                    cientos de personas. Cada mano cuenta para transformar realidades.
+                </p>
+                <a href="/contactanos"
+                    class="text-yellow-600 font-black text-xs uppercase tracking-widest flex items-center group">
+                    Ser Voluntario <i class="fas fa-chevron-right ml-2 group-hover:ml-4 transition-all"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Comedores (Grid) -->
+    <section id="comedores" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+                <div>
+                    <h2 class="text-4xl font-black text-purple-900 mb-4">Nuestros Comedores</h2>
+                    <p class="text-gray-500 max-w-md">Contamos con instalaciones equipadas en los puntos más críticos de
+                        la zona metropolitana.</p>
+                </div>
+                <div class="h-1 w-32 bg-orange-500 rounded-full hidden md:block"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Sede Escobedo -->
+                <div
+                    class="group bg-white rounded-3xl overflow-hidden shadow-md card-hover transition-all duration-300">
+                    <div class="relative h-56 overflow-hidden">
+                        <iframe
+                            src="https://maps.google.com/maps?q=Comedor+de+los+Pobres+Escobedo+Pedregal+del+Topo+Chico&hl=es&z=17&output=embed"
+                            class="w-full h-full border-0 absolute inset-0 grayscale hover:grayscale-0 transition-all duration-500"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl text-center font-bold text-gray-900 mb-4">Escobedo</h3>
+                        <a href="/comedorEscobedo">
+                            <button
+                                class="w-full py-4 bg-purple-50 text-purple-700 font-black rounded-2xl group-hover:bg-purple-600 group-hover:text-white transition-all uppercase tracking-tighter">
+                                Detalles Sede
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sede García -->
+                <div
+                    class="group bg-white rounded-3xl overflow-hidden shadow-md card-hover transition-all duration-300">
+                    <div class="relative h-56 overflow-hidden">
+                        <iframe
+                            src="https://maps.google.com/maps?q=Comedor+de+los+Pobres+Unidad+García&hl=es&z=17&output=embed"
+                            class="w-full h-full border-0 absolute inset-0 grayscale hover:grayscale-0 transition-all duration-500"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl text-center font-bold text-gray-900 mb-4">García</h3>
+                        <a href="/comedorGarcia">
+                            <button
+                                class="w-full py-4 bg-purple-50 text-purple-700 font-black rounded-2xl group-hover:bg-purple-600 group-hover:text-white transition-all uppercase tracking-tighter">
+                                Detalles Sede
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sede Guadalupe -->
+                <div
+                    class="group bg-white rounded-3xl overflow-hidden shadow-md card-hover transition-all duration-300">
+                    <div class="relative h-56 overflow-hidden">
+                        <iframe
+                            src="https://maps.google.com/maps?q=Comedor+de+los+Pobres+Unidad+Guadalupe&hl=es&z=17&output=embed"
+                            class="w-full h-full border-0 absolute inset-0 grayscale hover:grayscale-0 transition-all duration-500"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl text-center font-bold text-gray-900 mb-4">Guadalupe</h3>
+                        <a href="/comedorGuadalupe">
+                            <button
+                                class="w-full py-4 bg-purple-50 text-purple-700 font-black rounded-2xl group-hover:bg-purple-600 group-hover:text-white transition-all uppercase tracking-tighter">
+                                Detalles Sede
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sede Juárez -->
+                <div
+                    class="group bg-white rounded-3xl overflow-hidden shadow-md card-hover transition-all duration-300">
+                    <div class="relative h-56 overflow-hidden">
+                        <iframe
+                            src="https://maps.google.com/maps?q=Centro+Comunitario+Arboledas+de+los+Naranjos+Juárez+Nuevo+León&hl=es&z=17&output=embed"
+                            class="w-full h-full border-0 absolute inset-0 grayscale hover:grayscale-0 transition-all duration-500"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl text-center font-bold text-gray-900 mb-4">Juarez</h3>
+                        <a href="/comedorJuarez">
+                            <button
+                                class="w-full py-4 bg-purple-50 text-purple-700 font-black rounded-2xl group-hover:bg-purple-600 group-hover:text-white transition-all uppercase tracking-tighter">
+                                Detalles Sede
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN BANNER CARRERA  -->
+    <section class="py-12 bg-purple-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div
+                class="relative bg-gradient-to-r from-purple-900 to-purple-800 rounded-[2.5rem] p-8 md:p-12 shadow-xl overflow-hidden">
+
+                <!-- Decoración de fondo -->
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-orange-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 -mr-20 -mt-20">
+                </div>
+
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+
+                    <!-- Texto Principal -->
+                    <div class="text-center md:text-left max-w-xl">
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-orange-400 rounded-full text-[10px] font-black uppercase tracking-widest mb-4 border border-white/10">
+                            <i class="fas fa-running"></i> Evento con Causa
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
+                            Corre y Alimenta la <span class="text-orange-500">Esperanza</span>
+                        </h2>
+                        <p class="text-purple-100 text-sm md:text-base leading-relaxed opacity-90">
+                            Participa en nuestra carrera anual. Todo lo recaudado se destina directamente al
+                            sostenimiento de nuestros comedores y la compra de alimentos para quienes más lo necesitan.
+                        </p>
+                    </div>
+
+                    <!-- Botón de Acción -->
+                    <div class="shrink-0">
+                        <a href="https://www.instagram.com/correyalimentalaesperanza?igsh=YTdmcXRzMGdjMmJz"
+                            target="_blank"
+                            class="px-8 py-4 bg-orange-500 text-white rounded-full font-black text-sm hover:bg-orange-600 transition shadow-lg shadow-orange-900/40 flex items-center gap-3 group uppercase tracking-widest">
+                            <span>Ver detalles en Instagram</span>
+                            <i class="fab fa-instagram text-lg group-hover:scale-110 transition"></i>
+                        </a>
+                        <p class="text-center text-purple-300 text-[10px] mt-3 font-bold uppercase tracking-tighter">
+                            Inscripciones y rutas disponibles
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE CAMPAÑAS Y VIDEOS -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black text-purple-900 italic">Acciones que Dejan Huella</h2>
+                <div class="w-24 h-1.5 bg-yellow-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Video/Campaña 1 -->
+                <a href="https://www.youtube.com/watch?v=bkDXa2lRu9s" target="_blank"
+                    class="block group cursor-pointer">
+                    <div class="relative rounded-[2rem] overflow-hidden aspect-video shadow-lg mb-6">
+                        <img src="/imagenes/P.-Roberto-Infante.jpg" loading="lazy"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <div
+                                class="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition">
+                                <i class="fas fa-play text-xl ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm font-bold text-purple-900 uppercase tracking-widest text-center">Video
+                        Institucional</p>
+                </a>
+
+                <!-- Video/Campaña 2 -->
+                <a href="https://www.youtube.com/watch?v=GY7a6vkFO3s" target="_blank"
+                    class="block group cursor-pointer">
+                    <div class="relative rounded-[2rem] overflow-hidden aspect-video shadow-lg mb-6">
+                        <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=500"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <div
+                                class="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition">
+                                <i class="fas fa-play text-xl ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm font-bold text-purple-900 uppercase tracking-widest text-center">Nuestra Directora
+                    </p>
+                </a>
+
+                <!-- Video/Campaña 3 -->
+                <a href="https://www.youtube.com/watch?v=hJ_-4FF7Xr0" target="_blank"
+                    class="block group cursor-pointer">
+                    <div class="relative rounded-[2rem] overflow-hidden aspect-video shadow-lg mb-6">
+                        <img src="https://images.unsplash.com/photo-1594708767771-a7502209ff51?w=500"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <div
+                                class="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition">
+                                <i class="fas fa-play text-xl ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm font-bold text-purple-900 uppercase tracking-widest text-center">Comedor Unidad
+                        Escobedo</p>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INFORME DE RESULTADOS -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div
+                class="bg-white rounded-[4rem] p-12 lg:p-20 shadow-xl border border-gray-100 grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <img src="/imagenes/informeactividades.png" loading="lazy"
+                        class="rounded-[3rem] shadow-xl rotate-1" alt="Reporte">
+                </div>
+                <div class="order-1 lg:order-2 space-y-8 text-center lg:text-left">
+                    <h3 class="text-4xl lg:text-5xl font-black text-purple-900 leading-tight">Informe de Actividades y
+                        Resultados</h3>
+                    <p class="text-lg text-gray-500 font-medium">Enero - Diciembre 2025</p>
+                    <p class="text-gray-400 leading-relaxed italic text-sm">
+                        La transparencia es el pilar de nuestra confianza. Consulta nuestros logros y el impacto directo
+                        que hemos generado gracias a tu apoyo constante.
+                    </p>
+                    <a href="https://drive.google.com/file/d/1Uq0AEv62zvA3xydw3OPqMTWr2jwERhG1/view?usp=sharing"
+                        target="_blank"
+                        class="inline-flex items-center px-10 py-5 bg-purple-600 text-white font-black rounded-3xl hover:bg-purple-700 transition shadow-xl shadow-purple-200 mx-auto lg:mx-0">
+                        <i class="fas fa-file-pdf mr-3"></i> VER INFORME COMPLETO
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <%- include('partials/footer') %>
+</body>
+</html>

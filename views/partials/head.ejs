@@ -1,0 +1,61 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= typeof title !== 'undefined' ? title : 'Comedor de los Pobres' %></title>
+<meta name="description" content="<%= typeof description !== 'undefined' ? description : 'Asociación Juan XXIII - Comedor de los Pobres P. Roberto Infante en Nuevo León.' %>">
+<link rel="icon" type="image/png" href="/imagenes/logomorado.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                screens: {
+                    xs: '420px',
+                },
+            },
+        },
+    };
+</script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap');
+
+    :root {
+        --morado: #7c3aed;
+        --amarillo: #fbbf24;
+        --naranja: #f97316;
+    }
+
+    body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .glass-nav {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+    }
+
+    .nav-link {
+        position: relative;
+        transition: color 0.3s;
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: var(--naranja);
+        transition: width 0.3s;
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+    #mobile-menu-panel {
+        -webkit-overflow-scrolling: touch;
+    }
+</style>
