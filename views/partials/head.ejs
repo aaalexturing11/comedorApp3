@@ -19,6 +19,10 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap');
 
+    html {
+        scroll-behavior: smooth;
+    }
+
     :root {
         --morado: #7c3aed;
         --amarillo: #fbbf24;
@@ -37,7 +41,8 @@
 
     .nav-link {
         position: relative;
-        transition: color 0.3s;
+        color: #4b5563; /* text-gray-600 */
+        transition: color 0.3s ease;
     }
 
     .nav-link::after {
@@ -45,13 +50,27 @@
         position: absolute;
         width: 0;
         height: 2px;
-        bottom: -4px;
+        bottom: -6px;
         left: 0;
         background-color: var(--naranja);
-        transition: width 0.3s;
+        border-radius: 9999px;
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-link:hover {
+        color: var(--morado);
     }
 
     .nav-link:hover::after {
+        width: 100%;
+    }
+
+    .nav-link.active {
+        color: var(--morado) !important;
+        font-weight: 800; /* Extra bold */
+    }
+
+    .nav-link.active::after {
         width: 100%;
     }
 

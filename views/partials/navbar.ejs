@@ -15,22 +15,15 @@
             <!-- Links de Navegación -->
             <div class="hidden lg:flex space-x-8 items-center">
                 <a href="/"
-                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'index' ? 'text-purple-600 border-b-2 border-orange-500 font-extrabold' : 'text-gray-600 hover:text-purple-600' %>">INICIO</a>
+                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && (activePage === 'index' || activePage.startsWith('comedor')) ? 'active' : '' %>">INICIO</a>
                 <a href="/laAsociacion" 
-                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'laAsociacion' ? 'text-purple-600 border-b-2 border-orange-500 font-extrabold' : 'text-gray-600 hover:text-purple-600' %>">LA ASOCIACIÓN</a>
+                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'laAsociacion' ? 'active' : '' %>">NOSOTROS</a>
                 <a href="/informe"
-                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'informe' ? 'text-purple-600 border-b-2 border-orange-500 font-extrabold' : 'text-gray-600 hover:text-purple-600' %>">INFORME</a>
-                <a href="/contactanos"
-                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'contactanos' ? 'text-purple-600 border-b-2 border-orange-500 font-extrabold' : 'text-gray-600 hover:text-purple-600' %>">CONTÁCTANOS</a>
-                <a href="/cuentas"
-                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'cuentas' ? 'text-purple-600 border-b-2 border-orange-500 font-extrabold' : 'text-gray-600 hover:text-purple-600' %>">CUENTAS</a>
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"
-                    class="inline-flex items-center">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="hosted_button_id" value="4DESX3LB9LFRC">
-                    <button type="submit"
-                        class="px-6 py-2.5 bg-orange-500 text-white rounded-full font-black text-xs hover:bg-orange-600 transition shadow-lg shadow-orange-200 cursor-pointer">DONAR</button>
-                </form>
+                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'informe' ? 'active' : '' %>">INFORME</a>
+                   <a href="/contactanos"
+                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'contactanos' ? 'active' : '' %>">CONTÁCTANOS</a>
+                <a href="/donar"
+                    class="px-6 py-2.5 bg-orange-500 text-white rounded-full font-black text-sm hover:bg-orange-600 transition shadow-lg shadow-orange-200 cursor-pointer inline-flex items-center active:scale-95 duration-200">DONAR</a>
             </div>
 
             <!-- Mobile Toggle -->
@@ -51,21 +44,15 @@
             class="absolute top-14 sm:top-16 left-0 right-0 w-full max-h-[calc(100dvh-3.5rem)] sm:max-h-[calc(100dvh-4rem)] bg-white shadow-xl rounded-b-3xl border-x border-b border-purple-100/80 -translate-y-full transition-transform duration-200 ease-out overflow-y-auto overscroll-contain pb-[max(1rem,env(safe-area-inset-bottom))]">
             <nav class="flex flex-col px-4 pt-8 pb-4 gap-1" aria-label="Menú principal">
                 <a href="/"
-                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'index' ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">INICIO</a>
+                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && (activePage === 'index' || activePage.startsWith('comedor')) ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">INICIO</a>
                 <a href="/laAsociacion"
-                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'laAsociacion' ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">LA ASOCIACIÓN</a>
+                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'laAsociacion' ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">NOSOTROS</a>
                 <a href="/informe"
                     class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'informe' ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">INFORME</a>
                 <a href="/contactanos"
                     class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'contactanos' ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">CONTÁCTANOS</a>
-                <a href="/cuentas"
-                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'cuentas' ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">CUENTAS</a>
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="mt-4 mx-1">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="hosted_button_id" value="4DESX3LB9LFRC">
-                    <button type="submit"
-                        class="w-full py-3.5 text-center bg-orange-500 text-white rounded-2xl font-black text-sm hover:bg-orange-600 transition shadow-lg shadow-orange-200 cursor-pointer">DONAR</button>
-                </form>
+                <a href="/donar"
+                    class="mt-4 mx-1 block py-3.5 text-center bg-orange-500 text-white rounded-2xl font-black text-sm hover:bg-orange-600 transition shadow-lg shadow-orange-200">DONAR</a>
             </nav>
         </div>
     </div>

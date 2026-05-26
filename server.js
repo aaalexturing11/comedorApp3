@@ -16,8 +16,8 @@ app.get('/index.html', (req, res) => res.render('index', { activePage: 'index' }
 
 const pages = [
   'comedorEscobedo', 'comedorGarcia', 'comedorGuadalupe', 
-  'comedorJuarez', 'contactanos', 'cuentas', 
-  'informe', 'laAsociacion'
+  'comedorJuarez', 'contactanos', 
+  'donar', 'informe', 'laAsociacion'
 ];
 
 pages.forEach(page => {
