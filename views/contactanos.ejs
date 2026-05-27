@@ -6,11 +6,24 @@
         description: 'Contáctanos. Asociación Juan XXIII - Comedor de los Pobres. Ponte en comunicación con nosotros para donar o ser voluntario.' 
     }) %>
     <style>
-        .hero-contact {
-            background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%);
+        .hero-visual {
+            background: linear-gradient(135deg, #c27bf8 0%, #946ed6 100%);
+            min-height: 35vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
             border-radius: 0 0 4rem 4rem;
-            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.05);
-            border-bottom: 1px solid rgba(124, 58, 237, 0.04);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.25);
+            border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+        }
+
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+            background-image: radial-gradient(#ffffff 1px, transparent 1px);
+            background-size: 30px 30px;
         }
 
         .input-field {
@@ -58,15 +71,22 @@
     <%- include('partials/navbar') %>
 
     <!-- PORTADA -->
-    <header class="hero-contact pt-20 pb-24 text-center">
-        <div class="max-w-4xl mx-auto px-6">
-            <span class="text-orange-500 font-black text-[10px] uppercase tracking-widest mb-4 block">Estamos para escucharte</span>
-            <h1 class="text-4xl md:text-5xl font-black text-purple-900 mb-6">Contáctanos</h1>
-            <p class="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto">
+    <section class="hero-visual text-white">
+        <div class="hero-pattern"></div>
+        
+        <!-- Círculos decorativos -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 -right-24 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-6 w-full text-center relative z-10 py-8">
+            <h1 class="text-4xl md:text-5xl font-black mb-6">
+                Contáctanos
+            </h1>
+            <p class="text-lg text-purple-100 max-w-2xl mx-auto leading-relaxed opacity-90">
                 ¿Tienes dudas, quieres ser voluntario o realizar una donación en especie? Envíanos un mensaje y nos pondremos en contacto contigo.
             </p>
         </div>
-    </header>
+    </section>
 
     <!-- SECCIÓN FORMULARIO Y MAPA -->
     <section class="pt-16 pb-16">

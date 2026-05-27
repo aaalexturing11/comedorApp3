@@ -1,31 +1,48 @@
+/**
+ * @fileoverview Main entry point for the Express application.
+ */
+
 const express = require('express');
 const path = require('path');
-const app = express();
-const PORT = process.env.PORT || 8080;
 
-// Configurar EJS como motor de plantillas
+/** @type {import('express').Application} */
+const app = express();
+
+/** @type {number | string} */
+const port = process.env.PORT || 8080;
+
+// ----- View Engine Setup -----
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Servir archivos estáticos (imágenes, CSS, JS del frontend)
+// ----- Static Middleware -----
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Rutas
+// ----- Core Routes -----
 app.get('/', (req, res) => res.render('index', { activePage: 'index' }));
 app.get('/index.html', (req, res) => res.render('index', { activePage: 'index' }));
 
-const pages = [
-  'comedorEscobedo', 'comedorGarcia', 'comedorGuadalupe', 
-  'comedorJuarez', 'contactanos', 
-  'donar', 'informe', 'laAsociacion'
+/** @type {string[]} */
+const pageRoutes = [
+    'contactanos',
+    'cuentas',
+    'donar',
+    'informe',
+    'nosotros',
+    'comedores'
 ];
 
-pages.forEach(page => {
-  // Rutas sin extensión y con extensión .html para mantener retrocompatibilidad
-  app.get(`/${page}`, (req, res) => res.render(page, { activePage: page }));
-  app.get(`/${page}.html`, (req, res) => res.render(page, { activePage: page }));
+pageRoutes.forEach((page) => {
+    app.get(`/${page}`, (req, res) => res.render(page, { activePage: page }));
+    app.get(`/${page}.html`, (req, res) => res.render(page, { activePage: page }));
 });
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server is running on port http://localhost:${PORT}`);
+// ----- Error Handler Middleware -----
+app.use((req, res) => {
+    res.status(404).render('index', { activePage: 'index' });
+});
+
+// ----- Server Initialization -----
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server is running on port http://localhost:${port}`);
 });

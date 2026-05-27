@@ -3,6 +3,20 @@
 <title><%= typeof title !== 'undefined' ? title : 'Comedor de los Pobres' %></title>
 <meta name="description" content="<%= typeof description !== 'undefined' ? description : 'Asociación Juan XXIII - Comedor de los Pobres P. Roberto Infante en Nuevo León.' %>">
 <link rel="icon" type="image/png" href="/imagenes/logomorado.png">
+
+<!-- ----- SEO & Social Sharing (OpenGraph & Twitter) ----- -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="<%= typeof title !== 'undefined' ? title : 'Comedor de los Pobres' %>">
+<meta property="og:description" content="<%= typeof description !== 'undefined' ? description : 'Asociación Juan XXIII - Comedor de los Pobres P. Roberto Infante en Nuevo León.' %>">
+<meta property="og:image" content="<%= typeof ogImage !== 'undefined' ? ogImage : '/imagenes/logomorado.png' %>">
+<% if (typeof ogUrl !== 'undefined' && ogUrl) { %>
+<meta property="og:url" content="<%= ogUrl %>">
+<% } %>
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<%= typeof title !== 'undefined' ? title : 'Comedor de los Pobres' %>">
+<meta name="twitter:description" content="<%= typeof description !== 'undefined' ? description : 'Asociación Juan XXIII - Comedor de los Pobres P. Roberto Infante en Nuevo León.' %>">
+<meta name="twitter:image" content="<%= typeof ogImage !== 'undefined' ? ogImage : '/imagenes/logomorado.png' %>">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
     tailwind.config = {
@@ -68,10 +82,6 @@
     .nav-link.active {
         color: var(--morado) !important;
         font-weight: 800; /* Extra bold */
-    }
-
-    .nav-link.active::after {
-        width: 100%;
     }
 
     #mobile-menu-panel {

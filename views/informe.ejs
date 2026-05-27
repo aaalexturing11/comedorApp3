@@ -58,11 +58,24 @@
             color: var(--naranja-accent);
         }
 
-        .hero-report {
-            background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%);
+        .hero-visual {
+            background: linear-gradient(135deg, #c27bf8 0%, #946ed6 100%);
+            min-height: 35vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
             border-radius: 0 0 4rem 4rem;
-            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.05);
-            border-bottom: 1px solid rgba(124, 58, 237, 0.04);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.25);
+            border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+        }
+
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+            background-image: radial-gradient(#ffffff 1px, transparent 1px);
+            background-size: 30px 30px;
         }
     </style>
 </head>
@@ -74,21 +87,23 @@
 
 
     <!-- PORTADA DEL INFORME -->
-    <header class="hero-report pt-20 pb-24 text-center">
-        <div class="max-w-4xl mx-auto px-6 relative z-10">
-            <span class="text-orange-500 font-black text-[10px] uppercase tracking-widest mb-4 block">Transparencia y
-                Resultados</span>
-            <h1 class="text-4xl md:text-5xl font-black text-purple-900 mb-6">Informe Anual 2025</h1>
-            <p class="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+    <section class="hero-visual text-white">
+        <div class="hero-pattern"></div>
+        
+        <!-- Círculos decorativos -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 -right-24 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-6 w-full text-center relative z-10 py-8">
+            <h1 class="text-4xl md:text-5xl font-black mb-6">
+                Informe <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">Anual 2025</span>
+            </h1>
+            <p class="text-lg text-purple-100 max-w-2xl mx-auto leading-relaxed opacity-90">
                 Comprometidos con la disminución de la pobreza alimentaria, compartimos los resultados y el impacto de
                 nuestra labor durante este año.
             </p>
-            <a href="/informe/Informe 2025.pdf" download="Informe-Anual-2025.pdf"
-                class="inline-flex items-center px-8 py-3 bg-purple-600 text-white rounded-full font-black text-xs hover:bg-purple-700 transition shadow-lg shadow-purple-200">
-                <i class="fas fa-file-pdf mr-2"></i> DESCARGAR REPORTE PDF
-            </a>
         </div>
-    </header>
+    </section>
 
     <!-- CONTENT WRAPPER -->
     <main class="max-w-7xl mx-auto px-6 pt-16 pb-12">
@@ -127,6 +142,12 @@
                             class="sidebar-item p-4 text-sm font-bold rounded-xl flex items-center gap-3 hover:bg-gray-50">
                             <i class="fas fa-award w-5"></i> Reconocimientos
                         </a>
+                        <div class="pt-4 mt-2 border-t border-gray-100">
+                            <a href="/informe/Informe 2025.pdf" download="Informe-Anual-2025.pdf"
+                                class="flex items-center justify-center w-full px-4 py-3 bg-purple-600 text-white rounded-xl font-bold text-sm hover:bg-purple-700 transition shadow-md shadow-purple-200">
+                                <i class="fas fa-download mr-2"></i> Descargar Reporte
+                            </a>
+                        </div>
                     </nav>
                 </div>
             </aside>
@@ -734,25 +755,38 @@
     <%- include('partials/footer') %>
 
     <script>
-        // Lógica simple para resaltar el sidebar al hacer scroll
+        // ----- Sidebar Scroll Highlight Logic -----
+        /** @type {NodeListOf<HTMLElement>} */
         const sections = document.querySelectorAll('section[id]');
+        /** @type {NodeListOf<HTMLElement>} */
         const navItems = document.querySelectorAll('.sidebar-item');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
-            });
+        /** @type {boolean} */
+        let isTicking = false;
 
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.getAttribute('href') === `#${current}`) {
-                    item.classList.add('active');
-                }
-            });
+        window.addEventListener('scroll', () => {
+            if (!isTicking) {
+                window.requestAnimationFrame(() => {
+                    let currentSectionId = '';
+                    
+                    sections.forEach((section) => {
+                        const sectionTop = section.offsetTop;
+                        if (window.scrollY >= sectionTop - 150) {
+                            currentSectionId = section.getAttribute('id');
+                        }
+                    });
+
+                    navItems.forEach((item) => {
+                        item.classList.remove('active');
+                        if (item.getAttribute('href') === `#${currentSectionId}`) {
+                            item.classList.add('active');
+                        }
+                    });
+                    
+                    isTicking = false;
+                });
+                isTicking = true;
+            }
         });
     </script>
 </body>

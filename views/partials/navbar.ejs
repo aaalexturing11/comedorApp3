@@ -15,9 +15,11 @@
             <!-- Links de Navegación -->
             <div class="hidden lg:flex space-x-8 items-center">
                 <a href="/"
-                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && (activePage === 'index' || activePage.startsWith('comedor')) ? 'active' : '' %>">INICIO</a>
-                <a href="/laAsociacion" 
-                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'laAsociacion' ? 'active' : '' %>">NOSOTROS</a>
+                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && (activePage === 'index' || (activePage.startsWith('comedor') && activePage !== 'comedores')) ? 'active' : '' %>">INICIO</a>
+                <a href="/nosotros" 
+                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'nosotros' ? 'active' : '' %>">NOSOTROS</a>
+                <a href="/comedores" 
+                    class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'comedores' ? 'active' : '' %>">COMEDORES</a>
                 <a href="/informe"
                     class="nav-link text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'informe' ? 'active' : '' %>">INFORME</a>
                    <a href="/contactanos"
@@ -44,9 +46,11 @@
             class="absolute top-14 sm:top-16 left-0 right-0 w-full max-h-[calc(100dvh-3.5rem)] sm:max-h-[calc(100dvh-4rem)] bg-white shadow-xl rounded-b-3xl border-x border-b border-purple-100/80 -translate-y-full transition-transform duration-200 ease-out overflow-y-auto overscroll-contain pb-[max(1rem,env(safe-area-inset-bottom))]">
             <nav class="flex flex-col px-4 pt-8 pb-4 gap-1" aria-label="Menú principal">
                 <a href="/"
-                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && (activePage === 'index' || activePage.startsWith('comedor')) ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">INICIO</a>
-                <a href="/laAsociacion"
-                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'laAsociacion' ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">NOSOTROS</a>
+                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && (activePage === 'index' || (activePage.startsWith('comedor') && activePage !== 'comedores')) ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">INICIO</a>
+                <a href="/nosotros"
+                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'nosotros' ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">NOSOTROS</a>
+                <a href="/comedores"
+                    class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'comedores' ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">COMEDORES</a>
                 <a href="/informe"
                     class="mobile-nav-link py-3 px-4 rounded-xl text-sm font-bold <%= typeof activePage !== 'undefined' && activePage === 'informe' ? 'text-purple-600 bg-purple-50 border-l-4 border-orange-500' : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600' %>">INFORME</a>
                 <a href="/contactanos"

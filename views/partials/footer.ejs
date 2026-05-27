@@ -48,57 +48,69 @@
     </footer>
 
     <script>
-        (function () {
-            var root = document.getElementById('mobile-menu');
-            var toggle = document.getElementById('mobile-menu-toggle');
-            var backdrop = document.getElementById('mobile-menu-backdrop');
-            var panel = document.getElementById('mobile-menu-panel');
+        // ----- Mobile Menu Logic -----
+        (() => {
+            /** @type {HTMLElement | null} */
+            const root = document.getElementById('mobile-menu');
+            /** @type {HTMLElement | null} */
+            const toggle = document.getElementById('mobile-menu-toggle');
+            /** @type {HTMLElement | null} */
+            const backdrop = document.getElementById('mobile-menu-backdrop');
+            /** @type {HTMLElement | null} */
+            const panel = document.getElementById('mobile-menu-panel');
+            
             if (!root || !toggle || !backdrop || !panel) return;
 
-            var openIcon = toggle.querySelector('.icon-open');
-            var closeIcon = toggle.querySelector('.icon-close');
-            var links = root.querySelectorAll('a');
+            /** @type {HTMLElement | null} */
+            const openIcon = toggle.querySelector('.icon-open');
+            /** @type {HTMLElement | null} */
+            const closeIcon = toggle.querySelector('.icon-close');
+            /** @type {NodeListOf<HTMLElement>} */
+            const links = root.querySelectorAll('a');
 
-            function setOpen(open) {
-                root.classList.toggle('pointer-events-none', !open);
-                root.setAttribute('aria-hidden', open ? 'false' : 'true');
-                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-                toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
-                document.body.classList.toggle('overflow-hidden', open);
+            /**
+             * @param {boolean} isOpen
+             */
+            const setOpen = (isOpen) => {
+                root.classList.toggle('pointer-events-none', !isOpen);
+                root.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+                toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+                document.body.classList.toggle('overflow-hidden', isOpen);
 
-                backdrop.classList.toggle('opacity-0', !open);
-                backdrop.classList.toggle('opacity-100', open);
+                backdrop.classList.toggle('opacity-0', !isOpen);
+                backdrop.classList.toggle('opacity-100', isOpen);
 
-                panel.classList.toggle('-translate-y-full', !open);
-                panel.classList.toggle('translate-y-0', open);
+                panel.classList.toggle('-translate-y-full', !isOpen);
+                panel.classList.toggle('translate-y-0', isOpen);
 
                 if (openIcon && closeIcon) {
-                    openIcon.classList.toggle('hidden', open);
-                    closeIcon.classList.toggle('hidden', !open);
+                    openIcon.classList.toggle('hidden', isOpen);
+                    closeIcon.classList.toggle('hidden', !isOpen);
                 }
-            }
+            };
 
-            toggle.addEventListener('click', function () {
+            toggle.addEventListener('click', () => {
                 setOpen(toggle.getAttribute('aria-expanded') !== 'true');
             });
 
-            backdrop.addEventListener('click', function () {
+            backdrop.addEventListener('click', () => {
                 setOpen(false);
             });
 
-            links.forEach(function (a) {
-                a.addEventListener('click', function () {
+            links.forEach((a) => {
+                a.addEventListener('click', () => {
                     setOpen(false);
                 });
             });
 
-            root.querySelectorAll('form').forEach(function (f) {
-                f.addEventListener('submit', function () {
+            root.querySelectorAll('form').forEach((f) => {
+                f.addEventListener('submit', () => {
                     setOpen(false);
                 });
             });
 
-            document.addEventListener('keydown', function (e) {
+            document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') setOpen(false);
             });
         })();
