@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "Sitio web del Comedor de los Pobres",
   "main": "server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
-    "build": "echo 'No build step needed'",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
   "dependencies": {
     "ejs": "^5.0.2",

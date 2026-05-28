@@ -10,7 +10,6 @@
                 background: white;
                 border-radius: 2.5rem;
                 border: 1px solid rgba(0, 0, 0, 0.03);
-                transition: transform 0.3s ease;
             }
 
             .value-tag {
@@ -49,7 +48,7 @@
         </style>
 </head>
 
-<body>
+<body class="overflow-x-hidden">
 
     <!-- NAVBAR -->
     <%- include('partials/navbar') %>
@@ -59,12 +58,12 @@
             <div class="hero-pattern"></div>
 
             <!-- Círculos decorativos -->
-            <div class="absolute -top-24 -left-24 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl"></div>
-            <div class="absolute top-1/2 -right-24 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute -top-12 sm:-top-24 -left-12 sm:-left-24 w-64 sm:w-96 h-64 sm:h-96 bg-yellow-400/20 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 -right-12 sm:-right-24 w-48 sm:w-64 h-48 sm:h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
 
-            <div class="max-w-7xl mx-auto px-6 w-full text-center relative z-10 py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full text-center relative z-10 py-8">
                 <h1 class="text-4xl md:text-5xl font-black mb-6">
-                    Una misión que nos define
+                    Una <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">misión</span> que nos define
                 </h1>
                 <p class="text-lg text-purple-100 max-w-2xl mx-auto leading-relaxed opacity-90">
                     Conoce la historia, los valores y el corazón de Juan XXIII al Servicio de los Pobres A.C.
@@ -74,9 +73,9 @@
 
         <!-- MISIÓN Y VISIÓN -->
         <section class="pt-12 pb-8">
-            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-6">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-6">
                 <!-- Misión -->
-                <div class="soft-card p-6 md:p-8 shadow-sm flex gap-4 items-start">
+                <div class="soft-card p-6 md:p-8 shadow-sm flex gap-4 items-start scroll-reveal" style="--delay: 0ms;">
                     <div
                         class="w-10 h-10 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center shrink-0 mt-1">
                         <i class="fas fa-bullseye text-lg"></i>
@@ -93,7 +92,7 @@
                 </div>
 
                 <!-- Visión -->
-                <div class="soft-card p-6 md:p-8 shadow-sm flex gap-4 items-start">
+                <div class="soft-card p-6 md:p-8 shadow-sm flex gap-4 items-start scroll-reveal" style="--delay: 150ms;">
                     <div
                         class="w-10 h-10 bg-orange-100 text-orange-500 rounded-xl flex items-center justify-center shrink-0 mt-1">
                         <i class="fas fa-eye text-lg"></i>
@@ -111,20 +110,20 @@
         </section>
 
         <!-- HISTORIA / LA ASOCIACIÓN -->
-        <section class="py-24">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="grid lg:grid-cols-12 gap-16 items-start">
+        <section class="py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
                     <!-- Imagen e Intro -->
                     <div class="lg:col-span-5 space-y-8">
-                        <div class="relative">
+                        <div class="relative scroll-reveal" style="--delay: 0ms;">
                             <div class="aspect-[3/4] rounded-[3rem] overflow-hidden shadow-2xl">
                                 <!-- Placeholder de la foto del Padre Infante -->
                                 <img src="/imagenes/robertoInfante.jpg" class="w-full h-full object-cover"
                                     alt="Padre Roberto Infante">
                             </div>
                             <div
-                                class="absolute -bottom-6 -right-6 bg-purple-600 text-white p-8 rounded-[2rem] shadow-xl max-w-[280px]">
+                                class="absolute -bottom-6 -right-6 bg-purple-600 text-white p-8 rounded-[2rem] shadow-xl max-w-[280px] scroll-reveal" style="--delay: 200ms;">
                                 <p class="text-xs font-bold uppercase tracking-widest opacity-80 mb-2">Fundador</p>
                                 <p class="font-black text-lg leading-tight italic whitespace-nowrap">"Amar es servir"
                                 </p>
@@ -135,9 +134,9 @@
                     <!-- Texto de Historia -->
                     <div class="lg:col-span-7 space-y-8">
                         <div>
-                            <h2 class="text-3xl font-black text-purple-900 mb-6">Nuestra Historia</h2>
+                            <h2 class="text-3xl font-black text-purple-900 mb-6 scroll-reveal" style="--delay: 0ms;">Nuestra Historia</h2>
                             <div class="space-y-6 text-gray-500 leading-relaxed text-sm">
-                                <p>
+                                <p class="scroll-reveal" style="--delay: 100ms;">
                                     Nuestra asociación tuvo sus inicios desde el año <span
                                         class="font-bold text-purple-600">1961</span>, fecha en la cual el <span
                                         class="text-slate-800 font-bold">Padre Roberto Infante Castañeda</span> inició
@@ -145,12 +144,12 @@
                                     proyecto para dar alimentos a los más desamparados, dando servicio en un comedor
                                     parroquial para pobres.
                                 </p>
-                                <p>
+                                <p class="scroll-reveal" style="--delay: 200ms;">
                                     Gracias a la gran labor altruista y al loable esfuerzo del Pbro. Roberto Infante
                                     Castañeda sigue dando servicio en la actualidad en cuatro (4) sedes en diferentes
                                     Municipios de Nuevo León.
                                 </p>
-                                <p>
+                                <p class="scroll-reveal" style="--delay: 300ms;">
                                     Un 27 de Junio de 1961, este comedor tuvo sus inicios en la Colonia Industrial en
                                     Monterrey, una de las más precarias de la ciudad. Al ver la vulnerabilidad de las
                                     personas, el Padre Infante decidió llevar a cabo lo que se convertiría en su obra
@@ -158,7 +157,7 @@
                                     importante y por la que sería ampliamente recordado: la creación del COMEDOR DE LOS
                                     POBRES.
                                 </p>
-                                <p>
+                                <p class="scroll-reveal" style="--delay: 400ms;">
                                     El <span class="font-bold text-slate-800">29 de Octubre de 1969</span>, la
                                     asociación
                                     Juan XXIII al Servicio de los Pobres A.C. fue legalmente constituida.
@@ -168,18 +167,18 @@
 
                         <!-- Valores -->
                         <div class="pt-8 border-t border-gray-100">
-                            <h3 class="text-sm font-black text-gray-400 uppercase tracking-[0.2em] mb-8">Nuestros
+                            <h3 class="text-sm font-black text-gray-400 uppercase tracking-[0.2em] mb-8 scroll-reveal" style="--delay: 100ms;">Nuestros
                                 Valores
                             </h3>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div class="value-tag"><i class="fas fa-dove text-purple-400"></i> Espíritu de servicio
+                                <div class="value-tag scroll-reveal" style="--delay: 150ms;"><i class="fas fa-dove text-purple-400"></i> Espíritu de servicio
                                 </div>
-                                <div class="value-tag"><i class="fas fa-users text-purple-400"></i> Compromiso social
+                                <div class="value-tag scroll-reveal" style="--delay: 250ms;"><i class="fas fa-users text-purple-400"></i> Compromiso social
                                 </div>
-                                <div class="value-tag"><i class="fas fa-hand-holding-heart text-purple-400"></i> Respeto
+                                <div class="value-tag scroll-reveal" style="--delay: 350ms;"><i class="fas fa-hand-holding-heart text-purple-400"></i> Respeto
                                     a
                                     la dignidad</div>
-                                <div class="value-tag"><i class="fas fa-check-circle text-purple-400"></i> Honestidad e
+                                <div class="value-tag scroll-reveal" style="--delay: 450ms;"><i class="fas fa-check-circle text-purple-400"></i> Honestidad e
                                     Integridad</div>
                             </div>
                         </div>
@@ -190,10 +189,10 @@
         </section>
 
         <!-- BANNER DE CIERRE -->
-        <section class="pb-24 bg-white">
-            <div class="max-w-7xl mx-auto px-6">
+        <section class="pb-16 md:pb-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div
-                    class="bg-purple-900 rounded-[3rem] p-8 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+                    class="bg-purple-900 rounded-[3rem] p-8 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between text-center md:text-left scroll-reveal">
                     <div class="relative z-10">
                         <h3 class="text-2xl md:text-3xl font-black text-white mb-2">Sé parte de esta historia</h3>
                         <p class="text-purple-200">Tu apoyo permite que la obra del Padre Infante siga viva.</p>

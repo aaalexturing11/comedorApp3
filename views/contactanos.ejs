@@ -54,18 +54,9 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.05);
             border: 8px solid white;
         }
-
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-
-        .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px -12px rgba(124, 58, 237, 0.25);
-        }
     </style>
 </head>
-<body>
+<body class="overflow-x-hidden">
 
     <!-- NAVBAR-->
     <%- include('partials/navbar') %>
@@ -78,11 +69,11 @@
         <div class="absolute -top-24 -left-24 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl"></div>
         <div class="absolute top-1/2 -right-24 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
 
-        <div class="max-w-7xl mx-auto px-6 w-full text-center relative z-10 py-8">
-            <h1 class="text-4xl md:text-5xl font-black mb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full text-center relative z-10 py-8">
+            <h1 class="text-4xl md:text-5xl font-black mb-6 scroll-reveal" style="--delay: 100ms;">
                 Contáctanos
             </h1>
-            <p class="text-lg text-purple-100 max-w-2xl mx-auto leading-relaxed opacity-90">
+            <p class="text-lg text-purple-100 max-w-2xl mx-auto leading-relaxed opacity-90 scroll-reveal" style="--delay: 200ms;">
                 ¿Tienes dudas, quieres ser voluntario o realizar una donación en especie? Envíanos un mensaje y nos pondremos en contacto contigo.
             </p>
         </div>
@@ -90,13 +81,13 @@
 
     <!-- SECCIÓN FORMULARIO Y MAPA -->
     <section class="pt-16 pb-16">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
             
             <div class="grid lg:grid-cols-12 gap-12">
                 
                 <!-- Columna Formulario -->
                 <div class="lg:col-span-7">
-                    <div class="contact-card">
+                    <div class="contact-card scroll-reveal" style="--delay: 100ms;">
                         <h2 class="text-2xl font-black text-purple-900 mb-8">Envía un mensaje</h2>
                         
                         <form action="#" class="space-y-6">
@@ -139,24 +130,28 @@
 
                 <!-- Columna Info de Contacto Rápido -->
                 <div class="lg:col-span-5 space-y-6">
-                    <div class="bg-purple-900 rounded-[2.5rem] p-10 text-white relative overflow-hidden">
+                    <div class="bg-purple-900 rounded-[2.5rem] p-10 text-white relative overflow-hidden scroll-reveal" style="--delay: 200ms;">
                         <div class="relative z-10">
                             <h3 class="text-xl font-black mb-6">Canales Directos</h3>
                             <div class="space-y-6">
-                                <div class="flex items-start gap-4">
-                                    <div class="w-10 h-10 bg-purple-800 rounded-xl flex items-center justify-center shrink-0">
-                                        <i class="fas fa-phone-alt text-orange-400"></i>
+                                <div class="flex flex-col sm:flex-row items-start gap-6 sm:gap-4">
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-10 h-10 bg-purple-800 rounded-xl flex items-center justify-center shrink-0">
+                                            <i class="fas fa-phone-alt text-orange-400"></i>
+                                        </div>
+                                        <div>
+                                            <span class="text-[10px] font-bold text-purple-300 uppercase block mb-1">Teléfono Oficinas</span>
+                                            <p class="font-bold text-lg"><a href="tel:8183751163" class="hover:text-orange-400 transition-colors">81 8375 1163</a></p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <span class="text-[10px] font-bold text-purple-300 uppercase block mb-1">Teléfono Oficinas</span>
-                                        <p class="font-bold text-lg"><a href="tel:8183751163" class="hover:text-orange-400 transition-colors">81 8375 1163</a></p>
-                                    </div>
-                                    <div class="w-10 h-10 bg-purple-800 rounded-xl flex items-center justify-center shrink-0 ml-8 sm:ml-12">
-                                        <i class="fab fa-whatsapp text-orange-400 text-lg"></i>
-                                    </div>
-                                    <div>
-                                        <span class="text-[10px] font-bold text-purple-300 uppercase block mb-1">Whatsapp</span>
-                                        <p class="font-bold text-lg"><a href="https://wa.me/528130954567" target="_blank" class="hover:text-orange-400 transition-colors">81 3095 4567</a></p>
+                                    <div class="flex items-start gap-4 sm:ml-4">
+                                        <div class="w-10 h-10 bg-purple-800 rounded-xl flex items-center justify-center shrink-0">
+                                            <i class="fab fa-whatsapp text-orange-400 text-lg"></i>
+                                        </div>
+                                        <div>
+                                            <span class="text-[10px] font-bold text-purple-300 uppercase block mb-1">Whatsapp</span>
+                                            <p class="font-bold text-lg"><a href="https://wa.me/528130954567" target="_blank" class="hover:text-orange-400 transition-colors">81 3095 4567</a></p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="flex items-start gap-4">
@@ -174,7 +169,7 @@
                         <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-purple-800 rounded-full opacity-50"></div>
                     </div>
 
-                    <div class="bg-white rounded-[2.5rem] p-10 border border-gray-100">
+                    <div class="bg-white rounded-[2.5rem] p-10 border border-gray-100 scroll-reveal" style="--delay: 300ms;">
                         <h3 class="text-purple-900 font-black mb-6">Nuestras Sedes</h3>
                         <div class="space-y-4">
                             <div class="flex items-center gap-3 text-sm text-gray-600">

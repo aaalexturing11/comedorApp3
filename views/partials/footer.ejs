@@ -1,5 +1,5 @@
     <!-- FOOTER -->
-    <footer class="bg-white border-t border-gray-100 pt-20">
+    <footer class="bg-white border-t border-gray-100 pt-20 scroll-reveal">
         <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-0 pb-16">
             
             <div class="w-full lg:max-w-[280px]">
@@ -112,6 +112,26 @@
 
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') setOpen(false);
+            });
+        })();
+
+        // ----- Scroll Reveal Observer -----
+        (() => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px 0px -10% 0px',
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.scroll-reveal').forEach((el) => {
+                observer.observe(el);
             });
         })();
     </script>

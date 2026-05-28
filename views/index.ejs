@@ -6,10 +6,6 @@
         description: 'Asociación Juan XXIII - Comedor de los Pobres P. Roberto Infante en Nuevo León. Transformando vidas a través de la nutrición digna.'
         }) %>
         <style>
-            .hero-height {
-                min-height: 90vh;
-            }
-
             .blob {
                 position: absolute;
                 width: 500px;
@@ -20,20 +16,11 @@
                 z-index: -1;
             }
 
-            .card-hover {
-                transition: all 0.3s ease;
-            }
-
-            .card-hover:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 25px 50px -12px rgba(124, 58, 237, 0.25);
-            }
-
             .btn-glow:hover {
                 box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
             }
 
-            /* Flat Card Slide Carousel Styles */
+            /* ----- Carousel Slide Transitions ----- */
             .slide-3d {
                 position: absolute;
                 inset: 0;
@@ -65,13 +52,13 @@
         </style>
 </head>
 
-<body>
+<body class="overflow-x-hidden">
 
     <!-- NAVBAR -->
     <%- include('partials/navbar') %>
 
         <!-- Hero Section -->
-        <section class="relative hero-height flex items-center overflow-hidden py-8 sm:py-12 lg:py-0 font-sans">
+        <section class="relative min-h-[90dvh] md:min-h-[90vh] flex items-center overflow-hidden py-12 sm:py-16 lg:py-0">
             <!-- Elementos decorativos de fondo -->
             <div class="blob -top-20 -right-20" style="background: rgba(251, 191, 36, 0.15);"></div>
             <div class="blob -bottom-20 -left-20" style="background: rgba(124, 58, 237, 0.15);"></div>
@@ -82,7 +69,7 @@
                 <!-- Contenido Texto -->
                 <div class="lg:col-span-7 z-10">
                     <div
-                        class="inline-flex items-center space-x-2 bg-purple-50 border border-purple-100 px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6 max-w-full">
+                        class="inline-flex items-center space-x-2 bg-purple-50 border border-purple-100 px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6 max-w-full scroll-reveal" style="--delay: 100ms;">
                         <span class="flex h-2 w-2 shrink-0 rounded-full bg-purple-600"></span>
                         <span
                             class="text-purple-700 text-[10px] sm:text-xs font-bold uppercase tracking-widest leading-tight">Juan
@@ -90,19 +77,19 @@
                     </div>
 
                     <h1
-                        class="text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-[1.05] sm:leading-none mb-5 sm:mb-8">
+                        class="text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-[1.05] sm:leading-none mb-5 sm:mb-8 scroll-reveal" style="--delay: 200ms;">
                         Alimentando la <br>
                         <span
                             class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-orange-500 to-yellow-500">Esperanza</span>
                     </h1>
 
-                    <p class="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-10 max-w-xl leading-relaxed">
+                    <p class="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-10 max-w-xl leading-relaxed scroll-reveal" style="--delay: 300ms;">
                         Transformamos vidas a través de la nutrición digna. Conoce nuestros centros de atención y únete
                         a
                         nuestra misión en Nuevo León.
                     </p>
 
-                    <div class="flex flex-col xs:flex-row flex-wrap gap-3 sm:gap-4">
+                    <div class="flex flex-col xs:flex-row flex-wrap gap-3 sm:gap-4 scroll-reveal" style="--delay: 400ms;">
                         <a href="/comedores"
                             class="bg-purple-600 text-white text-center px-6 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold text-base sm:text-lg shadow-xl hover:bg-purple-700 transition-all btn-glow">
                             Nuestros Comedores
@@ -118,26 +105,20 @@
                         </form>
                     </div>
 
-                    <div class="mt-8 sm:mt-12 flex flex-col xs:flex-row xs:items-center gap-3 xs:gap-6 text-gray-400">
-                        <div class="flex -space-x-3">
-                            <img class="w-10 h-10 rounded-full border-2 border-white"
-                                src="https://i.pravatar.cc/100?u=1" alt="Donante">
-                            <img class="w-10 h-10 rounded-full border-2 border-white"
-                                src="https://i.pravatar.cc/100?u=2" alt="Donante">
-                            <img class="w-10 h-10 rounded-full border-2 border-white"
-                                src="https://i.pravatar.cc/100?u=3" alt="Donante">
+                    <div class="mt-8 sm:mt-12 flex flex-col xs:flex-row xs:items-center gap-3 xs:gap-6 text-gray-400 scroll-reveal" style="--delay: 500ms;">
+                        <div class="flex">
                             <div
                                 class="w-10 h-10 rounded-full border-2 border-white bg-yellow-400 flex items-center justify-center text-xs font-bold text-purple-900">
                                 +50</div>
                         </div>
-                        <p class="text-sm font-medium max-w-[16rem] xs:max-w-none">Más de 50 voluntarios activos hoy</p>
+                        <p class="text-sm font-medium">Más de 50 voluntarios activos hoy</p>
                     </div>
                 </div>
 
                 <!-- Imagen / Composición Visual -->
                 <div class="lg:col-span-5 relative max-lg:max-w-md max-lg:mx-auto w-full">
                     <div
-                        class="relative z-10 rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-2xl rotate-2 sm:rotate-3 hover:rotate-0 transition-transform duration-500 border-4 sm:border-8 border-white">
+                        class="relative z-10 rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-2xl rotate-2 sm:rotate-3 hover:rotate-0 transition-transform duration-500 border-4 sm:border-8 border-white scroll-reveal" style="--delay: 300ms;">
                         <img src="/imagenes/fotoportada.png" alt="Comedor Social"
                             class="w-full aspect-[4/5] max-h-[min(55vh,420px)] sm:max-h-none object-cover">
                     </div>
@@ -150,10 +131,10 @@
         </section>
 
         <!-- TRES PILARES (Responsabilidad, Donativos, Participa) -->
-        <section class="py-24 bg-gray-50 relative z-20">
-            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+        <section class="py-16 md:py-24 bg-gray-50 relative z-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-3 gap-8">
                 <!-- Pilar 1 -->
-                <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-gray-50 card-hover">
+                <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-gray-50 card-hover scroll-reveal" style="--delay: 0ms;">
                     <div
                         class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 mb-8 text-2xl">
                         <i class="fas fa-handshake"></i>
@@ -170,7 +151,7 @@
                 </div>
 
                 <!-- Pilar 2 -->
-                <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-gray-50 card-hover">
+                <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-gray-50 card-hover scroll-reveal" style="--delay: 150ms;">
                     <div
                         class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 mb-8 text-2xl">
                         <i class="fas fa-box-open"></i>
@@ -188,7 +169,7 @@
                 </div>
 
                 <!-- Pilar 3 -->
-                <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-gray-50 card-hover">
+                <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-gray-50 card-hover scroll-reveal" style="--delay: 300ms;">
                     <div
                         class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-600 mb-8 text-2xl">
                         <i class="fas fa-users"></i>
@@ -208,11 +189,11 @@
         </section>
 
         <!-- SECCIÓN DE NOVEDADES (CAROUSEL DE ANUNCIOS) -->
-        <section class="py-16 bg-white">
-            <div class="max-w-7xl mx-auto px-6">
+        <section class="py-12 md:py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <!-- Slider Wrapper -->
                 <div
-                    class="relative overflow-hidden rounded-[3rem] shadow-xl border border-gray-100 bg-white perspective-container min-h-[430px] xs:min-h-[410px] sm:min-h-[380px] md:min-h-[360px]">
+                    class="relative overflow-hidden rounded-[3rem] shadow-xl border border-gray-100 bg-white min-h-[430px] xs:min-h-[410px] sm:min-h-[380px] md:min-h-[360px] scroll-reveal" style="--delay: 100ms;">
 
                     <!-- SLIDE 1: Carrera -->
                     <div id="slide-carrera"
@@ -427,8 +408,8 @@
         </script>
 
         <!-- SECCIÓN DE CAMPAÑAS Y VIDEOS -->
-        <section class="py-24 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-6">
+        <section class="py-16 md:py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl font-black text-purple-900 italic">Acciones que Dejan Huella</h2>
                     <div class="w-24 h-1.5 bg-yellow-400 mx-auto mt-4 rounded-full"></div>
@@ -437,7 +418,7 @@
                 <div class="grid md:grid-cols-3 gap-10">
                     <!-- Video/Campaña 1 -->
                     <a href="https://www.youtube.com/watch?v=bkDXa2lRu9s" target="_blank"
-                        class="block group cursor-pointer">
+                        class="block group cursor-pointer scroll-reveal" style="--delay: 0ms;">
                         <div class="relative rounded-[2rem] overflow-hidden aspect-video shadow-lg mb-6">
                             <img src="/imagenes/video-institucional.png" loading="lazy"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
@@ -454,9 +435,9 @@
 
                     <!-- Video/Campaña 2 -->
                     <a href="https://www.youtube.com/watch?v=GY7a6vkFO3s" target="_blank"
-                        class="block group cursor-pointer">
+                        class="block group cursor-pointer scroll-reveal" style="--delay: 150ms;">
                         <div class="relative rounded-[2rem] overflow-hidden aspect-video shadow-lg mb-6">
-                            <img src="/imagenes/nuestra-directora.png"
+                            <img src="/imagenes/nuestra-directora.png" loading="lazy"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
                             <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
                                 <div
@@ -472,9 +453,9 @@
 
                     <!-- Video/Campaña 3 -->
                     <a href="https://www.youtube.com/watch?v=hJ_-4FF7Xr0" target="_blank"
-                        class="block group cursor-pointer">
+                        class="block group cursor-pointer scroll-reveal" style="--delay: 300ms;">
                         <div class="relative rounded-[2rem] overflow-hidden aspect-video shadow-lg mb-6">
-                            <img src="/imagenes/comedor-unidad-escobedo.png"
+                            <img src="/imagenes/comedor-unidad-escobedo.png" loading="lazy"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
                             <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
                                 <div

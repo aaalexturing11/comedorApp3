@@ -38,17 +38,17 @@
         }
     </style>
 </head>
-<body>
+<body class="overflow-x-hidden">
 
     <!-- NAVBAR -->
     <%- include('partials/navbar') %>
 
     <!-- HERO -->
     <header class="hero-simple pt-20 pb-24 text-center">
-        <div class="max-w-4xl mx-auto px-6">
-            <span class="text-orange-500 font-black text-[10px] uppercase tracking-widest mb-4 block">Apoyo Económico</span>
-            <h1 class="text-4xl md:text-5xl font-black text-purple-900 mb-6">Cuentas Bancarias</h1>
-            <p class="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <span class="text-orange-500 font-black text-[10px] uppercase tracking-widest mb-4 block scroll-reveal" style="--delay: 0ms;">Apoyo Económico</span>
+            <h1 class="text-4xl md:text-5xl font-black text-purple-900 mb-6 scroll-reveal" style="--delay: 100ms;">Cuentas Bancarias</h1>
+            <p class="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto scroll-reveal" style="--delay: 200ms;">
                 Tu apoyo nos ayuda a comprar la materia prima para la preparación de los alimentos y el sostenimiento de nuestra obra social.
             </p>
         </div>
@@ -56,10 +56,10 @@
 
     <!-- SECCIÓN DE CUENTAS -->
     <section class="pt-16 pb-12">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
             
             <!-- Datos Fiscales Generales -->
-            <div class="max-w-3xl mx-auto mb-16 bg-white p-8 rounded-[2rem] border border-purple-50 text-center shadow-sm">
+            <div class="max-w-3xl mx-auto mb-16 bg-white p-8 rounded-[2rem] border border-purple-50 text-center shadow-sm scroll-reveal" style="--delay: 100ms;">
                 <h2 class="text-purple-900 font-black text-xl mb-4">Información para Donativos</h2>
                 <div class="flex flex-col md:flex-row justify-center gap-6 items-center">
                     <div class="text-sm">
@@ -82,7 +82,7 @@
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 
                 <!-- Banco 1: BanBajío -->
-                <div class="bank-card border-t-4 border-purple-500">
+                <div class="bank-card border-t-4 border-purple-500 scroll-reveal" style="--delay: 200ms;">
                     <div class="flex justify-between items-start mb-8">
                         <div class="w-12 h-12 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center font-black text-xl italic">
                             B
@@ -104,7 +104,7 @@
                 </div>
 
                 <!-- Banco 2: AFIRME -->
-                <div class="bank-card border-t-4 border-green-500">
+                <div class="bank-card border-t-4 border-green-500 scroll-reveal" style="--delay: 300ms;">
                     <div class="flex justify-between items-start mb-8">
                         <div class="w-12 h-12 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center">
                             <i class="fas fa-university"></i>
@@ -128,7 +128,7 @@
             </div>
 
             <!-- Mensaje Final -->
-            <div class="mt-20 text-center">
+            <div class="mt-20 text-center scroll-reveal" style="--delay: 400ms;">
                 <p class="text-gray-400 text-sm italic max-w-xl mx-auto">
                     "Después del verbo AMAR, el verbo AYUDAR es el más hermoso."
                 </p>
