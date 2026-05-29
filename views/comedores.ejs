@@ -90,23 +90,45 @@
     </section>
 
     <!-- TABS -->
+    <!-- TABS -->
     <section class="pt-12 pb-4 bg-transparent sticky top-[80px] z-40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <!-- Scrollable container for mobile tabs -->
-            <div class="overflow-x-auto pb-2 flex justify-center">
-                <div class="bg-gray-100/80 backdrop-blur-md p-2 rounded-full inline-flex space-x-3 whitespace-nowrap min-w-max shadow-lg border border-gray-200/20">
-                    <button class="tab-btn active px-8 py-3 rounded-full text-sm md:text-base font-bold text-gray-500 hover:text-purple-900 focus:outline-none" data-target="escobedo">
-                        <i class="fas fa-map-marker-alt mr-2 text-purple-600"></i> Escobedo
-                    </button>
-                    <button class="tab-btn px-8 py-3 rounded-full text-sm md:text-base font-bold text-gray-500 hover:text-purple-900 focus:outline-none" data-target="garcia">
-                        <i class="fas fa-map-marker-alt mr-2 text-purple-600"></i> García
-                    </button>
-                    <button class="tab-btn px-8 py-3 rounded-full text-sm md:text-base font-bold text-gray-500 hover:text-purple-900 focus:outline-none" data-target="guadalupe">
-                        <i class="fas fa-map-marker-alt mr-2 text-purple-600"></i> Guadalupe
-                    </button>
-                    <button class="tab-btn px-8 py-3 rounded-full text-sm md:text-base font-bold text-gray-500 hover:text-purple-900 focus:outline-none" data-target="juarez">
-                        <i class="fas fa-map-marker-alt mr-2 text-purple-600"></i> Juárez
-                    </button>
+        <!-- Desktop: Sleek Capsule Navbar -->
+        <div class="hidden sm:flex justify-center w-full">
+            <div class="bg-gray-100/80 backdrop-blur-md p-2 rounded-full inline-flex space-x-3 whitespace-nowrap shadow-lg border border-gray-200/20">
+                <button class="tab-btn active px-8 py-3 rounded-full text-sm md:text-base font-bold text-gray-500 hover:text-purple-900 focus:outline-none flex items-center justify-center" data-target="escobedo">
+                    <i class="fas fa-map-marker-alt mr-2 text-purple-600"></i> Escobedo
+                </button>
+                <button class="tab-btn px-8 py-3 rounded-full text-sm md:text-base font-bold text-gray-500 hover:text-purple-900 focus:outline-none flex items-center justify-center" data-target="garcia">
+                    <i class="fas fa-map-marker-alt mr-2 text-purple-600"></i> García
+                </button>
+                <button class="tab-btn px-8 py-3 rounded-full text-sm md:text-base font-bold text-gray-500 hover:text-purple-900 focus:outline-none flex items-center justify-center" data-target="guadalupe">
+                    <i class="fas fa-map-marker-alt mr-2 text-purple-600"></i> Guadalupe
+                </button>
+                <button class="tab-btn px-8 py-3 rounded-full text-sm md:text-base font-bold text-gray-500 hover:text-purple-900 focus:outline-none flex items-center justify-center" data-target="juarez">
+                    <i class="fas fa-map-marker-alt mr-2 text-purple-600"></i> Juárez
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile: Compact Dropdown selector (Zero scroll, zero bulk!) -->
+        <div class="sm:hidden flex justify-center w-full px-4">
+            <div class="relative w-full max-w-[280px]">
+                <!-- Selector Select con espaciado izquierdo (pl-12) para no encimar el icono -->
+                <select id="mobile-tab-select" class="w-full bg-gray-100/90 backdrop-blur-md pl-12 pr-10 py-3.5 rounded-full font-bold text-purple-900 border border-gray-200 shadow-md appearance-none focus:outline-none cursor-pointer text-sm">
+                    <option value="escobedo">Escobedo</option>
+                    <option value="garcia">García</option>
+                    <option value="guadalupe">Guadalupe</option>
+                    <option value="juarez">Juárez</option>
+                </select>
+                
+                <!-- Icono de Ubicación a la Izquierda (Definido después del select y con z-10) -->
+                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-5 text-purple-600 z-10">
+                    <i class="fas fa-map-marker-alt text-sm"></i>
+                </div>
+                
+                <!-- Arrow icon (Definido después del select y con z-10) -->
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-5 text-purple-900 z-10">
+                    <i class="fas fa-chevron-down text-xs"></i>
                 </div>
             </div>
         </div>
@@ -420,6 +442,8 @@
                         <div class="gallery-item rounded-[2rem] overflow-hidden shadow-lg group"><img src="/imagenes/Comedor Juarez/CJ.2.jpg" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"></div>
                         <div class="gallery-item rounded-[2rem] overflow-hidden shadow-lg group"><img src="/imagenes/Comedor Juarez/CJ.3.jpg" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"></div>
                         <div class="gallery-item rounded-[2rem] overflow-hidden shadow-lg group"><img src="/imagenes/Comedor Juarez/CJ.4.jpg" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"></div>
+                        <div class="gallery-item rounded-[2rem] overflow-hidden shadow-lg group"><img src="/imagenes/Comedor Juarez/CJ.5.png" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"></div>
+                        <div class="gallery-item rounded-[2rem] overflow-hidden shadow-lg group"><img src="/imagenes/Comedor Juarez/CJ.6.jpg" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"></div>
                     </div>
                 </div>
             </section>
@@ -449,6 +473,39 @@
                     document.getElementById(targetId).classList.add('active');
                 });
             });
+
+            // Mobile Dropdown Select Logic (Sincronización perfecta)
+            const mobileSelect = document.getElementById('mobile-tab-select');
+            if (mobileSelect) {
+                mobileSelect.addEventListener('change', (e) => {
+                    const targetId = e.target.value;
+                    
+                    // Ocultar contenidos activos
+                    contents.forEach(c => c.classList.remove('active'));
+                    
+                    // Mostrar contenido seleccionado
+                    document.getElementById(targetId).classList.add('active');
+                    
+                    // Sincronizar clases activas en los botones de escritorio
+                    tabs.forEach(tab => {
+                        if (tab.getAttribute('data-target') === targetId) {
+                            tab.classList.add('active', 'bg-white', 'text-purple-900', 'shadow-sm');
+                            tab.classList.remove('text-gray-500');
+                        } else {
+                            tab.classList.remove('active', 'bg-white', 'text-purple-900', 'shadow-sm');
+                            tab.classList.add('text-gray-500');
+                        }
+                    });
+                });
+
+                // Sincronizar el select de móvil si el usuario cambia el tab en escritorio
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        const targetId = tab.getAttribute('data-target');
+                        mobileSelect.value = targetId;
+                    });
+                });
+            }
         });
     </script>
 

@@ -89,29 +89,22 @@
                         nuestra misión en Nuevo León.
                     </p>
 
-                    <div class="flex flex-col xs:flex-row flex-wrap gap-3 sm:gap-4 scroll-reveal" style="--delay: 400ms;">
+                    <div class="flex flex-row items-center gap-3 sm:gap-4 scroll-reveal" style="--delay: 400ms;">
                         <a href="/comedores"
-                            class="bg-purple-600 text-white text-center px-6 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold text-base sm:text-lg shadow-xl hover:bg-purple-700 transition-all btn-glow">
+                            class="bg-purple-600 text-white text-center px-5 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold text-sm sm:text-lg shadow-xl hover:bg-purple-700 transition-all btn-glow flex items-center justify-center">
                             Nuestros Comedores
                         </a>
-                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"
-                            class="w-full xs:flex-1 min-w-0 xs:w-auto">
-                            <input type="hidden" name="cmd" value="_s-xclick">
-                            <input type="hidden" name="hosted_button_id" value="4DESX3LB9LFRC">
-                            <button type="submit"
-                                class="bg-orange-500 text-white text-center px-6 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold text-base sm:text-lg shadow-xl hover:bg-orange-600 transition-all btn-glow cursor-pointer">
-                                Donar Ahora
-                            </button>
-                        </form>
+                        <a href="/donar"
+                            class="bg-orange-500 text-white text-center px-5 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold text-sm sm:text-lg shadow-xl hover:bg-orange-600 transition-all btn-glow flex items-center justify-center">
+                            Donar Ahora
+                        </a>
                     </div>
 
-                    <div class="mt-8 sm:mt-12 flex flex-col xs:flex-row xs:items-center gap-3 xs:gap-6 text-gray-400 scroll-reveal" style="--delay: 500ms;">
-                        <div class="flex">
-                            <div
-                                class="w-10 h-10 rounded-full border-2 border-white bg-yellow-400 flex items-center justify-center text-xs font-bold text-purple-900">
-                                +50</div>
+                    <div class="mt-8 sm:mt-12 flex scroll-reveal" style="--delay: 500ms;">
+                        <div
+                            class="inline-flex items-center h-10 px-5 rounded-full border-2 border-white bg-yellow-400 text-purple-900 font-bold text-sm shadow-md transition-all duration-300 hover:scale-105 select-none">
+                            +50 voluntarios activos hoy
                         </div>
-                        <p class="text-sm font-medium">Más de 50 voluntarios activos hoy</p>
                     </div>
                 </div>
 
@@ -193,7 +186,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <!-- Slider Wrapper -->
                 <div
-                    class="relative overflow-hidden rounded-[3rem] shadow-xl border border-gray-100 bg-white min-h-[430px] xs:min-h-[410px] sm:min-h-[380px] md:min-h-[360px] scroll-reveal" style="--delay: 100ms;">
+                    class="relative overflow-hidden rounded-[3rem] shadow-xl border border-gray-100 bg-white min-h-[600px] xs:min-h-[580px] sm:min-h-[540px] md:min-h-[480px] lg:min-h-[420px] xl:min-h-[380px] scroll-reveal" style="--delay: 100ms;">
 
                     <!-- SLIDE 1: Carrera -->
                     <div id="slide-carrera"
@@ -206,7 +199,7 @@
                             <!-- Imagen de la Carrera -->
                             <div class="lg:col-span-5 order-2 lg:order-1 flex justify-center">
                                 <img src="/imagenes/correyalimenta.png" loading="lazy"
-                                    class="w-full max-h-[250px] object-cover rounded-[2rem] shadow-xl -rotate-1 hover:rotate-0 transition duration-500"
+                                    class="w-full max-h-[160px] sm:max-h-[200px] lg:max-h-[250px] object-cover rounded-[2rem] shadow-xl -rotate-1 hover:rotate-0 transition duration-500"
                                     alt="Carrera">
                             </div>
                             <!-- Texto Principal -->
@@ -241,7 +234,7 @@
                         <div class="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
                             <div class="lg:col-span-5 order-2 lg:order-1 flex justify-center">
                                 <img src="/imagenes/informeactividades.png" loading="lazy"
-                                    class="w-full max-h-[250px] object-cover rounded-[2rem] shadow-xl rotate-1 hover:rotate-0 transition duration-500"
+                                    class="w-full max-h-[160px] sm:max-h-[200px] lg:max-h-[250px] object-cover rounded-[2rem] shadow-xl rotate-1 hover:rotate-0 transition duration-500"
                                     alt="Reporte">
                             </div>
                             <div class="lg:col-span-7 order-1 lg:order-2 space-y-4 text-center lg:text-left">
@@ -249,8 +242,7 @@
                                     class="inline-flex items-center gap-2 px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-[10px] font-black uppercase tracking-widest mb-1 border border-purple-100">
                                     <i class="fas fa-file-alt"></i> Transparencia
                                 </div>
-                                <h3 class="text-3xl lg:text-4xl font-black text-purple-900 leading-tight">Informe de
-                                    Actividades y Resultados</h3>
+                                <h3 class="text-3xl lg:text-4xl font-black text-purple-900 leading-tight">Informe Anual 2025</h3>
                                 <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Periodo Enero -
                                     Diciembre 2025</p>
                                 <p
