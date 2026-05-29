@@ -148,14 +148,14 @@
                 <div class="flex flex-col md:flex-row justify-center gap-6 items-center">
                     <div class="text-sm">
                         <span class="text-gray-400 block uppercase text-[10px] font-bold tracking-widest mb-1">Titular</span>
-                        <span class="font-bold text-gray-700">Juan XXIII al Servicio de los Pobres, A.C.</span>
+                        <span class="font-bold text-gray-700"><%= donation.holder %></span>
                     </div>
                     <div class="hidden md:block w-px h-10 bg-slate-100"></div>
                     <div class="text-sm">
                         <span class="text-gray-400 block uppercase text-[10px] font-bold tracking-widest mb-1">RFC</span>
                         <span class="font-bold text-gray-700 flex items-center justify-center gap-2">
-                            JXS-691024-U2A
-                            <button onclick="copyToClipboard('JXS-691024-U2A', 'RFC')" class="text-purple-500 hover:text-purple-700 focus:outline-none" title="Copiar RFC">
+                            <%= donation.rfc %>
+                            <button type="button" onclick="copyToClipboard('<%= donation.rfc %>', 'RFC')" class="text-purple-500 hover:text-purple-700 focus:outline-none" title="Copiar RFC">
                                 <i class="far fa-copy text-xs"></i>
                             </button>
                         </span>
@@ -169,26 +169,30 @@
 
             <!-- GRID DE 3 COLUMNAS -->
             <div class="grid lg:grid-cols-3 gap-8 items-stretch max-w-7xl mx-auto">
-                
-                <!-- Tarjeta 1: BanBajío -->
-                <div class="bank-card-premium p-8 relative overflow-hidden border-t-8 border-purple-500 flex flex-col justify-between scroll-reveal" style="--delay: 300ms;">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-purple-500/5 rounded-bl-full pointer-events-none"></div>
+                <% const bankStyles = [
+                    { border: 'border-purple-500', glow: 'bg-purple-500/5', iconBox: 'bg-purple-50 text-purple-600', badge: 'text-purple-400 bg-purple-50', delay: '300ms', option: '01', iconHtml: 'B', iconExtra: 'font-black text-xl italic' },
+                    { border: 'border-green-500', glow: 'bg-green-500/5', iconBox: 'bg-green-50 text-green-600', badge: 'text-green-600 bg-green-50', delay: '450ms', option: '02', iconHtml: '<i class="fas fa-university text-lg"></i>', iconExtra: '' }
+                ]; %>
+                <% donation.banks.forEach(function(bank, index) { %>
+                <% const style = bankStyles[index]; %>
+                <div class="bank-card-premium p-8 relative overflow-hidden border-t-8 <%= style.border %> flex flex-col justify-between scroll-reveal" style="--delay: <%= style.delay %>;">
+                    <div class="absolute top-0 right-0 w-24 h-24 <%= style.glow %> rounded-bl-full pointer-events-none"></div>
                     <div>
                         <div class="flex justify-between items-start mb-6">
-                            <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center font-black text-xl italic shadow-inner">
-                                B
+                            <div class="w-12 h-12 <%= style.iconBox %> rounded-2xl flex items-center justify-center shadow-inner <%= style.iconExtra %>">
+                                <%- style.iconHtml %>
                             </div>
-                            <span class="text-[10px] font-black text-purple-400 bg-purple-50 px-2.5 py-1 rounded-full uppercase tracking-widest">Opción 01</span>
+                            <span class="text-[10px] font-black <%= style.badge %> px-2.5 py-1 rounded-full uppercase tracking-widest">Opción <%= style.option %></span>
                         </div>
                         
-                        <h3 class="text-2xl font-black text-purple-900 mb-6">BanBajío</h3>
+                        <h3 class="text-2xl font-black text-purple-900 mb-6"><%= bank.name %></h3>
                         
                         <div class="space-y-6">
                             <div>
                                 <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest block mb-2">Número de Cuenta</label>
                                 <div class="copy-badge-premium">
-                                    <span>014 597 637 0201</span>
-                                    <button onclick="copyToClipboard('0145976370201', 'Número de Cuenta (BanBajío)')" class="text-purple-500 hover:text-purple-700 ml-2 focus:outline-none" title="Copiar sin espacios">
+                                    <span><%= bank.accountDisplay %></span>
+                                    <button type="button" onclick="copyToClipboard('<%= bank.accountCopy %>', 'Número de Cuenta (<%= bank.name %>)')" class="text-purple-500 hover:text-purple-700 ml-2 focus:outline-none" title="Copiar para banca en línea">
                                         <i class="far fa-copy"></i>
                                     </button>
                                 </div>
@@ -196,8 +200,8 @@
                             <div>
                                 <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest block mb-2">CLABE Interbancaria</label>
                                 <div class="copy-badge-premium">
-                                    <span>030 580 9000 0628 1824</span>
-                                    <button onclick="copyToClipboard('030580900006281824', 'CLABE (BanBajío)')" class="text-purple-500 hover:text-purple-700 ml-2 focus:outline-none" title="Copiar sin espacios">
+                                    <span><%= bank.clabeDisplay %></span>
+                                    <button type="button" onclick="copyToClipboard('<%= bank.clabeCopy %>', 'CLABE (<%= bank.name %>)')" class="text-purple-500 hover:text-purple-700 ml-2 focus:outline-none" title="Copiar sin espacios">
                                         <i class="far fa-copy"></i>
                                     </button>
                                 </div>
@@ -205,42 +209,7 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Tarjeta 2: AFIRME -->
-                <div class="bank-card-premium p-8 relative overflow-hidden border-t-8 border-green-500 flex flex-col justify-between scroll-reveal" style="--delay: 450ms;">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-green-500/5 rounded-bl-full pointer-events-none"></div>
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <div class="w-12 h-12 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center shadow-inner">
-                                <i class="fas fa-university text-lg"></i>
-                            </div>
-                            <span class="text-[10px] font-black text-green-600 bg-green-50 px-2.5 py-1 rounded-full uppercase tracking-widest">Opción 02</span>
-                        </div>
-                        
-                        <h3 class="text-2xl font-black text-purple-900 mb-6">AFIRME</h3>
-                        
-                        <div class="space-y-6">
-                            <div>
-                                <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest block mb-2">Número de Cuenta</label>
-                                <div class="copy-badge-premium">
-                                    <span>101-118-754</span>
-                                    <button onclick="copyToClipboard('101118754', 'Número de Cuenta (AFIRME)')" class="text-purple-500 hover:text-purple-700 ml-2 focus:outline-none" title="Copiar sin guiones">
-                                        <i class="far fa-copy"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div>
-                                <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest block mb-2">CLABE Interbancaria</label>
-                                <div class="copy-badge-premium">
-                                    <span>062 580 0010 1118 7547</span>
-                                    <button onclick="copyToClipboard('062580001011187547', 'CLABE (AFIRME)')" class="text-purple-500 hover:text-purple-700 ml-2 focus:outline-none" title="Copiar sin espacios">
-                                        <i class="far fa-copy"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <% }); %>
 
                 <!-- Tarjeta 3: PayPal -->
                 <div class="bank-card-premium p-8 relative overflow-hidden border-t-8 border-blue-500 flex flex-col justify-between scroll-reveal" style="--delay: 600ms;">
@@ -259,9 +228,10 @@
                         </p>
                         
                         <!-- Formulario de PayPal Oficial -->
-                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="w-full mt-4">
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener noreferrer" class="w-full mt-4">
                             <input type="hidden" name="cmd" value="_s-xclick">
-                            <input type="hidden" name="hosted_button_id" value="4DESX3LB9LFRC">
+                            <input type="hidden" name="hosted_button_id" value="<%= donation.paypalHostedButtonId %>">
+                            <input type="hidden" name="charset" value="utf-8">
                             
                             <button type="submit" 
                                     class="w-full py-3.5 bg-orange-500 text-white rounded-full font-black text-sm hover:bg-orange-600 transition shadow-lg shadow-orange-200 flex items-center justify-center gap-2 cursor-pointer">

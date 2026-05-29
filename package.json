@@ -11,7 +11,9 @@
     "dev": "node server.js"
   },
   "dependencies": {
+    "dotenv": "^16.6.1",
     "ejs": "^5.0.2",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "nodemailer": "^7.0.3"
   }
 }
